@@ -1,26 +1,47 @@
 package com.guilhermerocha.springmongo.resources;
 
 import com.guilhermerocha.springmongo.domain.User;
+import com.guilhermerocha.springmongo.repository.UserRepository;
 import com.guilhermerocha.springmongo.services.UserService;
+import com.guilhermerocha.springmongo.userDTO.UserDTO;
+import com.sun.jndi.toolkit.url.Uri;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.ServletRequestBindingException;
+import org.springframework.web.bind.annotation.*;
+import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
+import java.net.URI;
+import java.net.URL;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.Optional;
+import java.util.stream.Collectors;
 
 @RestController
 @RequestMapping(value = "/users")
 public class UserResource {
     @Autowired
     private UserService service;
-
+    private UserRepository repo;
     @RequestMapping(method = RequestMethod.GET)
-    public ResponseEntity<List<User>> findAll(){
+    public ResponseEntity<List<UserDTO>> findAll(){
         List<User> list = service.findAll();
-        return ResponseEntity.ok().body(list);
+        List<UserDTO> listDTO = list.stream().map(UserDTO::new).collect(Collectors.toList());
+        return ResponseEntity.ok().body(listDTO);
+    }
+
+    @RequestMapping(value="/{id}", method=RequestMethod.GET)
+    public ResponseEntity<UserDTO> findById(@PathVariable String id) {
+        User obj = service.findById(id);
+        return ResponseEntity.ok().body(new UserDTO(obj));
+    }
+    @PostMapping
+    public ResponseEntity<Void> insert(@RequestBody UserDTO objDTO) {
+        User obj = service.fromDTO(objDTO);
+        obj = service.insert(obj);
+        URI uri = ServletUriComponentsBuilder.fromCurrentRequest().path("/{id}").buildAndExpand(obj.getId()).toUri();
+        return ResponseEntity.created(uri).build();
     }
 }
