@@ -1,5 +1,6 @@
 package com.guilhermerocha.springmongo.config;
 
+import com.guilhermerocha.springmongo.domain.AuthorDTO;
 import com.guilhermerocha.springmongo.domain.Post;
 import com.guilhermerocha.springmongo.domain.User;
 import com.guilhermerocha.springmongo.repository.PostRepository;
@@ -32,7 +33,7 @@ public class Instantiation implements CommandLineRunner {
         User maria = new User(null, "Maria billy", "Guilhermerxcha@gmail.com");
         userRepository.saveAll(Arrays.asList(maria));
 
-        Post guilherme = new Post(null, simpleDateFormat.parse("21/02/2019"), "Partiu viagem", "Olá as festas foram muito boas", maria);
+        Post guilherme = new Post(null, simpleDateFormat.parse("21/02/2019"), "Partiu viagem", "Olá as festas foram muito boas", new AuthorDTO(maria));
         postRepository.saveAll(Arrays.asList(guilherme));
 
 
