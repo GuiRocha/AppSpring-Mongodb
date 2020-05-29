@@ -1,5 +1,6 @@
 package com.guilhermerocha.springmongo.resources;
 
+import com.guilhermerocha.springmongo.domain.Post;
 import com.guilhermerocha.springmongo.domain.User;
 import com.guilhermerocha.springmongo.repository.UserRepository;
 import com.guilhermerocha.springmongo.services.UserService;
@@ -38,6 +39,13 @@ public class UserResource {
         service.delete(id);
         return ResponseEntity.noContent().build();
     }
+
+    @RequestMapping(value="/{id}/posts", method=RequestMethod.GET)
+    public ResponseEntity<List<Post>> findByPosts(@PathVariable String id) {
+        User obj = service.findById(id);
+        return ResponseEntity.ok().body(obj.getPostList());
+    }
+
     @PostMapping
     public ResponseEntity<Void> insert(@RequestBody UserDTO objDTO) {
         User obj = service.fromDTO(objDTO);
