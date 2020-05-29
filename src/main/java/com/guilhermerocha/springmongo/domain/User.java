@@ -1,9 +1,13 @@
 package com.guilhermerocha.springmongo.domain;
 
 import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.DBRef;
 import org.springframework.data.mongodb.core.mapping.Document;
 
+import javax.validation.constraints.Max;
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Objects;
 @Document(collection = "user")
 
@@ -14,9 +18,12 @@ public class User implements Serializable{
     private String name;
     private String email;
 
-    public User(){
+    @DBRef(lazy = true)
+    private List<Post> postList = new ArrayList<>();
 
+    public User(){
     }
+
     public User(String id, String name, String email) {
         this.id = id;
         this.name = name;
@@ -45,6 +52,14 @@ public class User implements Serializable{
 
     public void setEmail(String email) {
         this.email = email;
+    }
+
+    public List<Post> getPostList() {
+        return postList;
+    }
+
+    public void setPostList(List<Post> postList) {
+        this.postList = postList;
     }
 
     @Override
