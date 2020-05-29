@@ -4,17 +4,13 @@ import com.guilhermerocha.springmongo.domain.User;
 import com.guilhermerocha.springmongo.repository.UserRepository;
 import com.guilhermerocha.springmongo.services.UserService;
 import com.guilhermerocha.springmongo.userDTO.UserDTO;
-import com.sun.jndi.toolkit.url.Uri;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.ServletRequestBindingException;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
 import java.net.URI;
-import java.net.URL;
-import java.util.ArrayList;
-import java.util.Arrays;
+
 import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
