@@ -1,10 +1,8 @@
-package com.guilhermerocha.springmongo.userDTO;
+package com.guilhermerocha.social_network.userDTO;
 
-import com.guilhermerocha.springmongo.domain.User;
-import org.springframework.data.annotation.Id;
+import com.guilhermerocha.social_network.domain.User;
 
 import java.io.Serializable;
-import java.util.Optional;
 
 public class UserDTO implements Serializable{
     private static final long seriaVersionUID = 1L;

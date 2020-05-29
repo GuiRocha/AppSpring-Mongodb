@@ -1,9 +1,9 @@
-package com.guilhermerocha.springmongo.services;
+package com.guilhermerocha.social_network.services;
 
-import com.guilhermerocha.springmongo.domain.User;
-import com.guilhermerocha.springmongo.repository.UserRepository;
-import com.guilhermerocha.springmongo.services.exception.ObjectNotFoundException;
-import com.guilhermerocha.springmongo.userDTO.UserDTO;
+import com.guilhermerocha.social_network.domain.User;
+import com.guilhermerocha.social_network.repository.UserRepository;
+import com.guilhermerocha.social_network.services.exception.ObjectNotFoundException;
+import com.guilhermerocha.social_network.userDTO.UserDTO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

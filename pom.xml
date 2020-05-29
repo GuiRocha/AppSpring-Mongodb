@@ -9,9 +9,9 @@
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
     <groupId>com.guilhermerocha</groupId>
-    <artifactId>spring-mongo</artifactId>
+    <artifactId>social-network</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <name>spring-mongo</name>
+    <name>social-network</name>
     <description>Demo project for Spring Boot</description>
 
     <properties>

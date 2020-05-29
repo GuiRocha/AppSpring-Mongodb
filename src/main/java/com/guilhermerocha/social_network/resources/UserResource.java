@@ -1,10 +1,10 @@
-package com.guilhermerocha.springmongo.resources;
+package com.guilhermerocha.social_network.resources;
 
-import com.guilhermerocha.springmongo.domain.Post;
-import com.guilhermerocha.springmongo.domain.User;
-import com.guilhermerocha.springmongo.repository.UserRepository;
-import com.guilhermerocha.springmongo.services.UserService;
-import com.guilhermerocha.springmongo.userDTO.UserDTO;
+import com.guilhermerocha.social_network.domain.Post;
+import com.guilhermerocha.social_network.domain.User;
+import com.guilhermerocha.social_network.repository.UserRepository;
+import com.guilhermerocha.social_network.services.UserService;
+import com.guilhermerocha.social_network.userDTO.UserDTO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -13,7 +13,6 @@ import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 import java.net.URI;
 
 import java.util.List;
-import java.util.Optional;
 import java.util.stream.Collectors;
 
 @RestController

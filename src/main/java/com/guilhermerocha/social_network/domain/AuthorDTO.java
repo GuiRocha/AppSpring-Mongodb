@@ -1,4 +1,4 @@
-package com.guilhermerocha.springmongo.domain;
+package com.guilhermerocha.social_network.domain;
 
 import java.io.Serializable;
 

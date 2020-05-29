@@ -1,4 +1,4 @@
-package com.guilhermerocha.springmongo;
+package com.guilhermerocha.social_network;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

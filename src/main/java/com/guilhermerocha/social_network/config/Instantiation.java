@@ -1,10 +1,10 @@
-package com.guilhermerocha.springmongo.config;
+package com.guilhermerocha.social_network.config;
 
-import com.guilhermerocha.springmongo.domain.AuthorDTO;
-import com.guilhermerocha.springmongo.domain.Post;
-import com.guilhermerocha.springmongo.domain.User;
-import com.guilhermerocha.springmongo.repository.PostRepository;
-import com.guilhermerocha.springmongo.repository.UserRepository;
+import com.guilhermerocha.social_network.domain.AuthorDTO;
+import com.guilhermerocha.social_network.domain.Post;
+import com.guilhermerocha.social_network.domain.User;
+import com.guilhermerocha.social_network.repository.PostRepository;
+import com.guilhermerocha.social_network.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.context.annotation.Configuration;
@@ -12,8 +12,6 @@ import org.springframework.context.annotation.Configuration;
 import java.text.SimpleDateFormat;
 import java.util.Arrays;
 import java.util.TimeZone;
-
-import static com.guilhermerocha.springmongo.repository.UserRepository.*;
 
 @Configuration
 public class Instantiation implements CommandLineRunner {

@@ -1,6 +1,6 @@
-package com.guilhermerocha.springmongo.repository;
+package com.guilhermerocha.social_network.repository;
 import org.springframework.data.mongodb.repository.MongoRepository;
-import com.guilhermerocha.springmongo.domain.User;
+import com.guilhermerocha.social_network.domain.User;
 import org.springframework.stereotype.Repository;
 
 @Repository

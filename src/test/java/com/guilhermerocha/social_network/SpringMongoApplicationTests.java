@@ -1,4 +1,4 @@
-package com.guilhermerocha.springmongo;
+package com.guilhermerocha.social_network;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
