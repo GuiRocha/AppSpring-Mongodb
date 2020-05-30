@@ -1,8 +1,8 @@
-package com.guilhermerocha.social_network.domain;
+package com.guilhermerocha.social_network.model;
 
 
-import com.guilhermerocha.social_network.DTO.AuthorDTO;
-import com.guilhermerocha.social_network.DTO.CommentDTO;
+import com.guilhermerocha.social_network.model.DTO.AuthorDTO;
+import com.guilhermerocha.social_network.model.DTO.CommentDTO;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 

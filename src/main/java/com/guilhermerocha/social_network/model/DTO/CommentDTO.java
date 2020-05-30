@@ -1,9 +1,7 @@
-package com.guilhermerocha.social_network.DTO;
+package com.guilhermerocha.social_network.model.DTO;
 
 import java.io.Serializable;
-import java.util.ArrayList;
 import java.util.Date;
-import java.util.List;
 
 public class CommentDTO implements Serializable {
     private static final long serialVersionUID = 1L;

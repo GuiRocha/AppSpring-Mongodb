@@ -1,6 +1,6 @@
 package com.guilhermerocha.social_network.services;
 
-import com.guilhermerocha.social_network.domain.Post;
+import com.guilhermerocha.social_network.model.Post;
 import com.guilhermerocha.social_network.repository.PostRepository;
 import com.guilhermerocha.social_network.services.exception.ObjectNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;

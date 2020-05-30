@@ -1,9 +1,9 @@
 package com.guilhermerocha.social_network.config;
 
-import com.guilhermerocha.social_network.DTO.AuthorDTO;
-import com.guilhermerocha.social_network.DTO.CommentDTO;
-import com.guilhermerocha.social_network.domain.Post;
-import com.guilhermerocha.social_network.domain.User;
+import com.guilhermerocha.social_network.model.DTO.AuthorDTO;
+import com.guilhermerocha.social_network.model.DTO.CommentDTO;
+import com.guilhermerocha.social_network.model.Post;
+import com.guilhermerocha.social_network.model.User;
 import com.guilhermerocha.social_network.repository.PostRepository;
 import com.guilhermerocha.social_network.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;

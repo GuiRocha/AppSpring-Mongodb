@@ -1,4 +1,4 @@
-package com.guilhermerocha.social_network.domain;
+package com.guilhermerocha.social_network.model;
 
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.DBRef;

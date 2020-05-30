@@ -1,6 +1,6 @@
-package com.guilhermerocha.social_network.resources;
+package com.guilhermerocha.social_network.controller;
 
-import com.guilhermerocha.social_network.domain.Post;
+import com.guilhermerocha.social_network.model.Post;
 import com.guilhermerocha.social_network.services.PostService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
@@ -12,14 +12,16 @@ import org.springframework.web.bind.annotation.*;
 @RestController
 @Api(value = "posts")
 @RequestMapping(value = "/posts")
-public class PostResource {
+public class PostController {
+
     @Autowired
     private PostService postService;
 
-    @ApiOperation(value = "Controller posts")
-    @RequestMapping(value="/{id}", method=RequestMethod.GET, produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
+    @ApiOperation(value = "Busca posts por id")
+    @RequestMapping(value="/{id}", method=RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<Post> findById(@PathVariable String id) {
         Post obj = postService.findById(id);
         return ResponseEntity.ok().body(obj);
     }
+
 }

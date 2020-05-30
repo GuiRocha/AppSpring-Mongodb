@@ -1,10 +1,11 @@
-package com.guilhermerocha.social_network.resources;
+package com.guilhermerocha.social_network.controller;
 
-import com.guilhermerocha.social_network.domain.Post;
-import com.guilhermerocha.social_network.domain.User;
+import com.guilhermerocha.social_network.model.Post;
+import com.guilhermerocha.social_network.model.User;
 import com.guilhermerocha.social_network.repository.UserRepository;
 import com.guilhermerocha.social_network.services.UserService;
-import com.guilhermerocha.social_network.DTO.UserDTO;
+import com.guilhermerocha.social_network.model.DTO.UserDTO;
+import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -17,39 +18,47 @@ import java.util.stream.Collectors;
 
 @RestController
 @RequestMapping(value = "/users")
-public class UserResource {
+public class UserController {
     @Autowired
     private UserService service;
     private UserRepository repo;
+
+    @ApiOperation(value = "Busca todos os Usuarios")
     @RequestMapping(method = RequestMethod.GET)
-    public ResponseEntity<List<UserDTO>> findAll(){
+    public ResponseEntity<List<UserDTO>> findAll() {
         List<User> list = service.findAll();
         List<UserDTO> listDTO = list.stream().map(UserDTO::new).collect(Collectors.toList());
         return ResponseEntity.ok().body(listDTO);
     }
 
-    @RequestMapping(value="/{id}", method=RequestMethod.GET)
+    @ApiOperation(value = "Busca usuarios pelo id")
+    @RequestMapping(value = "/{id}", method = RequestMethod.GET)
     public ResponseEntity<UserDTO> findById(@PathVariable String id) {
         User obj = service.findById(id);
         return ResponseEntity.ok().body(new UserDTO(obj));
     }
-    @RequestMapping(value = "/{id}", method = RequestMethod.DELETE)
-    public ResponseEntity<Void> delete(@PathVariable String id){
-        service.delete(id);
-        return ResponseEntity.noContent().build();
-    }
 
-    @RequestMapping(value="/{id}/posts", method=RequestMethod.GET)
-    public ResponseEntity<List<Post>> findByPosts(@PathVariable String id) {
-        User obj = service.findById(id);
-        return ResponseEntity.ok().body(obj.getPostList());
-    }
-
-    @PostMapping
+    @RequestMapping(method = RequestMethod.POST)
+    @ApiOperation(value = "Insere post")
     public ResponseEntity<Void> insert(@RequestBody UserDTO objDTO) {
         User obj = service.fromDTO(objDTO);
         obj = service.insert(obj);
         URI uri = ServletUriComponentsBuilder.fromCurrentRequest().path("/{id}").buildAndExpand(obj.getId()).toUri();
         return ResponseEntity.created(uri).build();
     }
+    @ApiOperation(value = "Deleta usuarios pelo id")
+    @RequestMapping(value = "/{id}", method = RequestMethod.DELETE)
+    public ResponseEntity<Void> delete(@PathVariable String id) {
+        service.delete(id);
+        return ResponseEntity.noContent().build();
+    }
+    //TODO: Adicionar método PUT
+    @ApiOperation(value = "Busca posts relacionados ao usuario atraves do id")
+    @RequestMapping(value = "/{id}/posts", method = RequestMethod.GET)
+    public ResponseEntity<List<Post>> findByPosts(@PathVariable String id) {
+        User obj = service.findById(id);
+        return ResponseEntity.ok().body(obj.getPostList());
+    }
+
+
 }
