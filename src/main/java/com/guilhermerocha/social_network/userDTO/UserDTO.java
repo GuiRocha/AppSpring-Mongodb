@@ -1,5 +1,6 @@
 package com.guilhermerocha.social_network.userDTO;
 
+import com.guilhermerocha.social_network.domain.Post;
 import com.guilhermerocha.social_network.domain.User;
 
 import java.io.Serializable;
@@ -11,7 +12,7 @@ public class UserDTO implements Serializable{
     private String name;
     private String email;
 
-    public UserDTO(){
+    public UserDTO(Post obj){
 
     }
     public UserDTO(User obj){
