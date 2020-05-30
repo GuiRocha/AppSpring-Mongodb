@@ -1,4 +1,6 @@
-package com.guilhermerocha.social_network.domain;
+package com.guilhermerocha.social_network.DTO;
+
+import com.guilhermerocha.social_network.domain.User;
 
 import java.io.Serializable;
 

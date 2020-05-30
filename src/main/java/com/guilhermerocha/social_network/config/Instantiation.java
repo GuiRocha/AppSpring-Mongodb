@@ -1,6 +1,7 @@
 package com.guilhermerocha.social_network.config;
 
-import com.guilhermerocha.social_network.domain.AuthorDTO;
+import com.guilhermerocha.social_network.DTO.AuthorDTO;
+import com.guilhermerocha.social_network.DTO.CommentDTO;
 import com.guilhermerocha.social_network.domain.Post;
 import com.guilhermerocha.social_network.domain.User;
 import com.guilhermerocha.social_network.repository.PostRepository;
@@ -33,6 +34,9 @@ public class Instantiation implements CommandLineRunner {
 
         Post guilherme = new Post(null, simpleDateFormat.parse("21/02/2019"), "Partiu viagem", "Olá as festas foram muito boas", new AuthorDTO(maria));
         postRepository.saveAll(Arrays.asList(guilherme));
+
+        CommentDTO comentario01 = new CommentDTO("Boa viagem", simpleDateFormat.parse("21/02/2019"), new AuthorDTO(maria));
+        guilherme.getCommentList().addAll(Arrays.asList(comentario01));
 
         maria.getPostList().addAll(Arrays.asList(guilherme));
         userRepository.save(maria);

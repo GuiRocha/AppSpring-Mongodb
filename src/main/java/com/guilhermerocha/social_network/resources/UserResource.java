@@ -4,7 +4,7 @@ import com.guilhermerocha.social_network.domain.Post;
 import com.guilhermerocha.social_network.domain.User;
 import com.guilhermerocha.social_network.repository.UserRepository;
 import com.guilhermerocha.social_network.services.UserService;
-import com.guilhermerocha.social_network.userDTO.UserDTO;
+import com.guilhermerocha.social_network.DTO.UserDTO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;

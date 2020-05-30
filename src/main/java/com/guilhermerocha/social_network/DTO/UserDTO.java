@@ -1,4 +1,4 @@
-package com.guilhermerocha.social_network.userDTO;
+package com.guilhermerocha.social_network.DTO;
 
 import com.guilhermerocha.social_network.domain.Post;
 import com.guilhermerocha.social_network.domain.User;
