@@ -32,8 +32,13 @@ public class UserServiceTest {
 
     @Test
     public void findAll() {
-        when(userRepository.findAll()).thenReturn(Stream.of(new User("abc3", "Danielle", "guilherme@gmail.com")).collect(Collectors.toList()));
+        when(userRepository.findAll()).thenReturn(Stream.of(new User("abc3", "Guilherme", "guilherme@gmail.com")).collect(Collectors.toList()));
         assertEquals(1, userService.findAll().size());
     }
+    @Test
+    public void findById(){
+        User user = new User("ab3", "Guilherme", "guilherme@gmail.com");
+        when(userRepository.findById("ab3")).thenReturn(Optional.of(user));
 
+    }
 }
