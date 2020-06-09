@@ -11,7 +11,7 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
-@Document
+@Document(collection="post")
 public class Post implements Serializable {
     private static final long serialVersionUID = 1L;
 
